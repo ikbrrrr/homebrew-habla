@@ -12,12 +12,15 @@ cask "habla" do
 
   app "Habla.app"
 
+  # This is a personal build, not notarized by Apple. Homebrew applies the
+  # download quarantine on install; strip it here so Gatekeeper doesn't block
+  # launch. (The old `--no-quarantine` flag was removed in Homebrew 6.)
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Habla.app"]
+  end
+
   caveats <<~CAVEATS
-    Hablá is a personal build and is not notarized by Apple, so it must be
-    installed WITHOUT quarantine:
-
-      brew install --cask ikbrrrr/habla/habla --no-quarantine
-
     First launch walks you through granting Accessibility (needed to paste
     transcribed text). Microphone is requested automatically by macOS. The
     Ctrl+Shift+Space hotkey needs no permission.
