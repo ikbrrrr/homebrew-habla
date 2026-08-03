@@ -8,7 +8,7 @@ cask "habla" do
   homepage "https://github.com/ikbrrrr/homebrew-habla"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Habla.app"
 
