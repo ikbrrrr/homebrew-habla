@@ -15,9 +15,9 @@ cask "habla" do
   # This is a personal build, not notarized by Apple. Homebrew applies the
   # download quarantine on install; strip it here so Gatekeeper doesn't block
   # launch. (The old `--no-quarantine` flag was removed in Homebrew 6.)
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Habla.app"]
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/Habla.app"],
+                          writable_paths: ["Habla.app"], writable_base: :appdir
   end
 
   caveats <<~CAVEATS
