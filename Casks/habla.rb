@@ -1,6 +1,6 @@
 cask "habla" do
-  version "2.1.3"
-  sha256 "4ac3140c842a07e7a077f2335b3871c927bc727b8f427fccabb27ee716b8f596"
+  version "2.1.4"
+  sha256 "017d041d6b13b982781290a05e4ea0e73c3ef75c7bb65810924e2d2d73cd9a12"
 
   url "https://github.com/ikbrrrr/homebrew-habla/releases/download/v#{version}/Habla-#{version}-arm64.zip"
   name "Hablá"
